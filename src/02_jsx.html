@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>JSX语法</title>
+        <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+        <script src="../lib/react.js"></script>
+        <script src="../lib/react-dom.js"></script>
+        <script src="../lib/babel.min.js"></script>
+    </head>
+    <body>
+        <div id="appname">这是app的名字</div>
+
+
+        <span class="time"></span>
+        
+        <script type="text/babel">
+            function test(){
+                return "React";
+            }
+
+            let ele = (
+                <div className="start" style={{
+                    fontSize: "3em",
+                    color: "green"
+                }}>我的明智之举</div>
+            );
+
+            ReactDOM.render(
+                ele,
+                document.getElementById("appname")
+            );
+
+            let update = e=>{
+                let time = document.getElementsByClassName('time')[0];
+                let date = new Date();
+                // ReactDOM.render(
+                //     date.toLocaleDateString() + date.toLocaleTimeString(),
+                //     time
+                // );
+                let details = date.toLocaleDateString() + date.toLocaleTimeString();
+                time.innerHTML = ` 
+                    <div style="color: red;font-size: 2em;">${details}</div>
+                 `;
+            };
+
+            setInterval(update,1000);
+        </script>
+    </body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>事件处理</title>
+        <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+        <script src="../lib/react.js"></script>
+        <script src="../lib/react-dom.js"></script>
+        <script src="../lib/babel.min.js"></script>
+    </head>
+    <body>
+        <div id="btn"></div>
+        <div id="ltn"></div>
+        
+        <script type="text/babel">
+            function clickMe(){
+                console.log("You clicked me!");
+            }
+            let btn = (
+                <button onClick={clickMe}>点我</button>
+            );
+            class Toggle extends React.Component{
+                constructor(props){
+                    super(props);
+                    this.state = {isToggleOn: true};
+
+                    // 为了在回调中使用` this `,这个绑定必不可少
+                    this.handleClick = this.handleClick.bind(this);
+                }
+                handleClick(){
+                    this.setState(state=>({
+                        isToggleOn: !state.isToggleOn,
+                    }));
+                    console.log(this.state.isToggleOn);
+                }
+                render(){
+                    return (
+                        <button onClick={this.handleClick}>
+                            {this.state.isToggleOn ? 'ON' : 'OFF'}
+                        </button>
+                    );
+                }
+            }
+
+            ReactDOM.render(
+                <Toggle />,
+                document.getElementById("btn")
+            );
+
+            class LoggingButton extends React.Component{
+                handleClick = ()=>{
+                    console.log('this is: ',this);
+                }
+                render(){
+                    return (
+                        <button onClick={this.handleClick}>
+                            Click me
+                        </button>
+                    );
+                }
+            }
+            
+            ReactDOM.render(
+                <LoggingButton />,
+                document.getElementById("ltn")
+            );
+
+            // 参数传递
+
+        </script>
+    </body>
+</html>

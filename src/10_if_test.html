@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>条件渲染</title>
+        <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+        <script src="../lib/react.js"></script>
+        <script src="../lib/react-dom.js"></script>
+        <script src="../lib/babel.min.js"></script>
+    </head>
+    <body>
+        
+        <div id="login"></div>
+        <div id="loginBtn"></div>
+        <div id="logoutBtn"></div>
+
+        <div id="loginControl"></div>
+
+        <div id="mail"></div>
+
+        <div id="show"></div>
+        
+        <script type="text/babel">
+            function UserGretting(){
+                return <h1>Welcome back!</h1>;
+            }
+
+            function GuestGretting(){
+                return <h1>Please sign up</h1>;
+            }
+
+            function Gretting(props){
+                const isLoggedIn = props.isLoggedIn;
+                if(isLoggedIn){
+                    return UserGretting();
+                } else {
+                    return GuestGretting();
+                }
+            }
+
+            function LoginButton(props){
+                return (
+                    <button onClick={props.onClick}>
+                        Login
+                    </button>
+                );
+            }
+
+            function LogoutButton(props){
+                return (
+                    <button onClick={props.onClick}>
+                        Logout
+                    </button>
+                );
+            }
+
+            class LoginControl extends React.Component{
+                constructor(props){
+                    super(props);
+                    this.handleLoginClick = this.handleLoginClick.bind(this);
+                    this.handleLogoutClick = this.handleLogoutClick.bind(this);
+                    this.state = {isLoggedIn: false};
+
+                }
+
+                handleLoginClick(){
+                    this.setState({isLoggedIn: true});
+                }
+
+                handleLogoutClick(){
+                    this.setState({isLoggedIn: false});
+                }
+
+                render(){
+                    const isLoggedIn = this.state.isLoggedIn;
+                    let button;
+                    if(isLoggedIn){
+                        button = <LogoutButton onClick={this.handleLogoutClick}/>
+                    } else {
+                        button = <LoginButton onClick={this.handleLoginClick}/>
+                    }
+                    return button;
+                }
+
+            }
+
+            // &&短路运算
+            function Mailbox(props){
+                const unreadMessage = props.unreadMessage;
+                return (
+                    <div>
+                        <h1>Hello!</h1>
+                        {
+                            unreadMessage &&
+                            <h2>
+                                You have {unreadMessage.length} unread messages 
+                            </h2>
+                        }
+                    </div>
+                );
+            }
+
+            // 三目运算符比较简单
+            // 防止组件被渲染，如果是函数直接返回null即可，例如
+            function ShowButton(props){
+                if(!props.show){
+                    return null;
+                }
+                return (
+                    <button>
+                        哈哈😆
+                    </button>
+                );
+            }
+
+            ReactDOM.render(
+                <ShowButton show={true}/>,
+                document.getElementById("show")
+            );
+
+            ReactDOM.render(
+                <Mailbox unreadMessage={{length:10}}/>,
+                document.getElementById("mail")
+            );
+
+            ReactDOM.render(
+                <LoginControl />,
+                document.getElementById("loginControl")
+            );
+
+            ReactDOM.render(
+                <Gretting isLoggedIn={true} />,
+                document.getElementById("login")
+            );
+        </script>
+    </body>
+</html>

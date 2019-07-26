@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>React入门</title>
+        <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+        <script src="../lib/react.js"></script>
+        <script src="../lib/react-dom.js"></script>
+        <script src="../lib/babel.min.js"></script>
+    </head>
+    <body>
+        <div id="like_button_container"></div>
+        
+        <script type="text/babel">
+            const domContainer = document.querySelector("#like_button_container");
+            ReactDOM.render(
+                <a href="https://blog.ourfor.top">我的博客</a>     
+            ,domContainer);
+        </script>
+    </body>
+</html>

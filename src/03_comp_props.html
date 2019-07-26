@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>组件和属性</title>
+        <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+        <script src="../lib/react.js"></script>
+        <script src="../lib/react-dom.js"></script>
+        <script src="../lib/babel.min.js"></script>
+    </head>
+    <body>
+        
+        <div class="welcome"></div>
+        <div id="second"></div>
+        <div id="hello"></div>
+
+        <script type="text/babel">
+
+            class Hello extends React.Component{
+                render(){
+                    let props = this.props;
+                    return (<div>{props.name}{props.title}</div>);
+                }
+            }
+
+
+            let props = {
+                title: "这是标题",
+            };
+            function Welcome(props){
+                console.log(props);
+                return (<h3>{props.title}{props.name}</h3>);
+            }
+            ReactDOM.render(Welcome(props),document.getElementsByClassName("welcome")[0]);
+            ReactDOM.render(<Welcome title="标题3" name="这是李白" />,document.getElementById("second"));
+            ReactDOM.render(<Hello title="采用类的方式" name="和蜗牛🐌邂逅" />,document.getElementById("hello"));
+        </script>
+    </body>
+</html>

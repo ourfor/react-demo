@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>列表和key</title>
+        <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+        <script src="../lib/react.js"></script>
+        <script src="../lib/react-dom.js"></script>
+        <script src="../lib/babel.min.js"></script>
+    </head>
+    <body>
+
+        <table id="student">
+            <thead>
+                <th>姓名</th>
+                <th>年龄</th>
+            </thead>
+            <tbody id="student-list">
+            </tbody>
+        </table>
+
+
+        <script type="text/babel">
+            function TrList(props){
+                return (
+                    <tr>
+                        <td>{props.item.name}</td>
+                        <td>{props.item.age}</td>
+                    </tr>
+                );
+            }
+            let students = [{name: "李白",age: 12},{name: "杜甫",age: 11},{name: "李清照",age: 10}];
+            let studentTds = students.map(item=>(
+                <TrList key={item.id} item={item}/>
+            ));
+            ReactDOM.render(
+                studentTds,
+                document.getElementById("student-list")
+            );
+        </script>
+    </body>
+</html>

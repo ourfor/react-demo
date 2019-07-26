@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>函数组件和class组件</title>
+        <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+        <script src="../lib/react.js"></script>
+        <script src="../lib/react-dom.js"></script>
+        <script src="../lib/babel.min.js"></script>
+    </head>
+    <body>
+        <div id="ele1"></div>
+        <div id="ele2"></div>
+
+        <div id="multitag"></div>
+        <div id="multitag2"></div>
+        
+        <script type="text/babel">
+            function Welcome(props){
+                return (
+                    <h1>Hello, {props.name} </h1>
+                );
+            }
+            class Hello extends React.Component{
+                render(){
+                    return <h1>Hello, {this.props.name} </h1> ;
+                }
+            }
+
+            const ele1 = <Welcome name="李白" />;
+            const ele2 = <Hello name="杜甫" />;
+
+            const Multitag = ()=>{
+                return (
+                    <div>
+                        <Welcome name="李清照" />
+                        <Welcome name="苏轼" />
+                        <Welcome name="鲁迅" />
+                    </div>
+                );
+            };
+
+
+            ReactDOM.render(
+                ele1,
+                document.getElementById("ele1")
+            );
+            ReactDOM.render(
+                ele2,
+                document.getElementById("ele2")
+            );
+            ReactDOM.render(
+                Multitag(),
+                document.getElementById("multitag")
+            );
+            ReactDOM.render(
+                <Multitag />,
+                document.getElementById("multitag2")
+            );
+            
+            // 提取组件
+            // function Comment(){
+            //     return (
+            //         <div className="Comment">
+            //             <div className="UserInfo">
+            //                 <img className="Avatar" 
+            //                     src={props.author.avatarUrl}
+            //                     alt={props.author.name}
+            //                 />
+            //                 <div className="UserInfo-name">
+            //                     {props.author.name}
+            //                 </div>
+            //             </div>
+            //             <div className="Comment-text">
+            //                 {props.text}
+            //             </div>
+            //             <div className="Comment-date">
+            //                 {formatDate(props.date)}
+            //             </div>
+            //         </div>
+            //     );
+            // }
+
+            // 由于嵌套变得难以维护
+            function Avatar(props){
+                return (
+                    <img className="Avatar"
+                        src={props.user.avatarUrl}
+                        alt={props.user.name}
+                    />
+                );
+            }
+            // 现在对Comment做一些小调整
+            function Comment(){
+                return (
+                    <div className="Comment">
+                        <div className="UserInfo">
+                            <Avatar user={props.author} />
+                            <div className="UserInfo-name">
+                                {props.author.name}
+                            </div>
+                        </div>
+                        <div className="Comment-text">
+                            {props.text}
+                        </div>
+                        <div className="Comment-date">
+                            {formatDate(props.date)}
+                        </div>
+                    </div>
+                );
+            }
+            
+            //  提取UserInfo组件
+            function UserInfo(){
+                return (
+                    <div className="UserInfo">
+                        <Avatar user={props.author}
+                        <div className="UserInfo-name">
+                            {props.author.name}
+                        </div>
+                    </div>
+                );
+            }
+
+            // 再次修改Comment
+
+            function Comment(){
+                return (
+                    <div className="Comment">
+                        <UserInfo author={props.author} />
+                        <div className="Comment-text">
+                            {props.text}
+                        </div>
+                        <div className="Comment-date">
+                            {formatDate(props.date)}
+                        </div>
+                    </div>
+                );
+            }
+
+        </script>
+    </body>
+</html>

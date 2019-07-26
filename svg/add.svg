@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 23.0.4, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="图层_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
+<style type="text/css">
+	.st0{filter:url(#Adobe_OpacityMaskFilter);}
+	.st1{mask:url(#SVGID_1_);}
+	.st2{fill:#37003F;}
+	.st3{filter:url(#Adobe_OpacityMaskFilter_1_);}
+	.st4{mask:url(#SVGID_2_);}
+	.st5{fill:#7D00A0;}
+</style>
+<g>
+	<defs>
+		<filter id="Adobe_OpacityMaskFilter" filterUnits="userSpaceOnUse" x="149.5" y="149.5" width="213" height="213">
+			<feFlood  style="flood-color:white;flood-opacity:1" result="back"/>
+			<feBlend  in="SourceGraphic" in2="back" mode="normal"/>
+		</filter>
+	</defs>
+	<mask maskUnits="userSpaceOnUse" x="149.5" y="149.5" width="213" height="213" id="SVGID_1_">
+		<g class="st0">
+			
+				<image style="overflow:visible;" width="218" height="218" xlink:href="F996F5ECC9805C8A.jpg"  transform="matrix(1 0 0 1 147 147)">
+			</image>
+		</g>
+	</mask>
+	<g class="st1">
+		<path class="st2" d="M346.5,240H272v-74.5c0-8.8-7.2-16-16-16s-16,7.2-16,16V240h-74.5c-8.8,0-16,6-16,16s7.5,16,16,16H240v74.5
+			c0,9.5,7,16,16,16s16-7.2,16-16V272h74.5c8.8,0,16-7.2,16-16S355.3,240,346.5,240z"/>
+	</g>
+</g>
+<g>
+	<defs>
+		<filter id="Adobe_OpacityMaskFilter_1_" filterUnits="userSpaceOnUse" x="48" y="48" width="416" height="416">
+			<feFlood  style="flood-color:white;flood-opacity:1" result="back"/>
+			<feBlend  in="SourceGraphic" in2="back" mode="normal"/>
+		</filter>
+	</defs>
+	<mask maskUnits="userSpaceOnUse" x="48" y="48" width="416" height="416" id="SVGID_2_">
+		<g class="st3">
+			
+				<image style="overflow:visible;" width="420" height="420" xlink:href="F996F5ECC9805C8E.jpg"  transform="matrix(1 0 0 1 46 46)">
+			</image>
+		</g>
+	</mask>
+	<g class="st4">
+		<path class="st5" d="M256,76c48.1,0,93.3,18.7,127.3,52.7S436,207.9,436,256s-18.7,93.3-52.7,127.3S304.1,436,256,436
+			s-93.3-18.7-127.3-52.7S76,304.1,76,256s18.7-93.3,52.7-127.3S207.9,76,256,76 M256,48C141.1,48,48,141.1,48,256s93.1,208,208,208
+			s208-93.1,208-208S370.9,48,256,48z"/>
+	</g>
+</g>
+</svg>
